@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700"
+	rel="stylesheet" />
+
+<head>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/css/style.css}" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="ISO-8859-1" />
+<title>Lista Opere</title>
+</head>
+<body style="background-image: url(../assets/images/sfondo.jpg);">
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<img src="/assets/images/logo.png" title="ACME Art Gallery"
+							class="logo" />
+					</div>
+					<div class="col-md-4"></div>
+					<div class="col-md-5" id="linkhome">
+						<a href="javascript: document.logoutForm.submit()" role="menuitem"
+							class="linklogoutinbar">| Logout |</a>
+
+						<form name="logoutForm" th:action="@{/logout}" method="post"
+							th:hidden="true">
+							<input hidden="true" type="submit" value="Sign Out" />
+						</form>
+						<a th:href="@{/operaform}" class="linkhomeinbar"> Aggiungi
+							Opera </a> <a th:href="@{/home}" class="linkhomeinbar">| Home |</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="container" id="riquadrolista">
+			<div class="row">
+
+				<div class="col-sm-3">
+					<p id="intestazione">Lista Opere:</p>
+				</div>
+
+			</div>
+
+
+			<div class="row">
+				<ul>
+					<li th:each="opera : ${opere}">
+						
+							<div class="col-md-3" id="ogniopera">
+							<form action="#" method="get" th:action="@{/opera}">
+								<a th:href="@{/opera(id=${opera.id})}" th:text="${opera.titolo}"
+									class="linklista"></a>
+							
+						</form>
+						</div>
+						<div class="col-md-3" id="ognioperacancella">
+							<a th:href="@{/cancellaopera(id=${opera.id})}"
+								class="btn btn-info" role="button" id="bottonecancella">Cancella</a>
+						</div>
+
+
+
+					</li>
+
+
+				</ul>
+				<div class="col-md-6" id="campiautore"></div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+</body>
+</html>

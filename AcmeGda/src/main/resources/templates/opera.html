@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700"
+	rel="stylesheet" />
+
+<head>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/css/style.css}" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="ISO-8859-1" />
+<title>Dettagli Opera</title>
+</head>
+
+
+<body style="background-image: url(../assets/images/sfondo.jpg);">
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="/assets/images/logo.png" title="ACME Art Gallery"
+							class="logo" />
+					</div>
+					<div class="col-md-5"></div>
+					<div class="col-md-4" id="linkhome">
+					<a href="javascript: document.logoutForm.submit()" role="menuitem" class="linklogoutinbar">| Logout |</a>
+
+   <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+      <input hidden="true" type="submit" value="Sign Out"/>
+   </form> 
+					<a th:href="@{/listaopere}" class="linkhomeinbar"> Opere </a>
+					<a th:href="@{/home}" class="linkhomeinbar">| Home |</a></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="container" id="riquadroopera">
+			<div class="row">
+
+				<div class="col-sm-3">
+					<p id="intestazione">Dettagli Opera</p>
+				</div>
+
+			</div>
+
+			<div class="row" id="informazioniopera">
+				<div class="col-md-6" id="campiopera">
+					<ul>
+
+						<li th:text="'Titolo: ' + ${opera.titolo}" />
+
+						<li th:text="'Anno: ' + ${opera.anno}" />
+
+						<li th:text="'Tecnica: ' + ${opera.tecnica}" />
+
+						<li
+							th:text="'Dimensioni: ' + ${opera.altezza} + 'x' + ${opera.altezza}" />
+						<li>Autore: <a  th:href="@{/autore(id=${opera.autore.id})}" class="linkinterni"
+							th:text="${opera.autore.nome} + ' ' + ${opera.autore.cognome} " ></a></li>
+					</ul>
+
+				</div>
+				<div class="col-md-6" id="campiopera">
+				<img alt="immagine_opera" th:src="${opera.imgURL}"  style="width:100%;" id="imgopera"/>
+				
+				</div>
+
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

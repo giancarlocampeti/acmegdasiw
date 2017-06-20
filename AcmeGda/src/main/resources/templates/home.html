@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700"
+	rel="stylesheet" />
+
+<head>
+<script src="/assets/js/slideshow.js"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/css/style.css}" /> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="ISO-8859-1" />
+
+<!-- CSS PER GESTIONE SLIDESHOW -->
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin-top: 40px;
+  margin: auto;
+}
+
+/* Next &amp; previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  margin-left:50px;
+  margin-right:50px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+ left: 0;
+ border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/4 etc) */
+.numbertext {
+  color: #f2f2f2;
+  background-color: rgba(0, 0,0, 0.3);
+  font: 400 30px 'Josefin Sans', sans-serif;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  margin-left: 50px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+    animation-duration: 1.5s;
+    animation-fill-mode:forwards
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+</style>
+
+<!-- END CSS PER GESTIONE SLIDESHOW -->
+
+<title>Home</title>
+</head>
+<body style="background-image: url(../assets/images/sfondo.jpg);">
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<img src="/assets/images/logo.png" title="ACME Art Gallery"
+							class="logo" />
+					</div>
+					<div class="col-md-4"></div>
+					<div class="col-md-5" id="linkhome">
+
+
+
+						<a href="javascript: document.logoutForm.submit()" role="menuitem"
+							class="linklogoutinbar">| Logout |</a>
+
+						<form name="logoutForm" th:action="@{/logout}" method="post"
+							th:hidden="true">
+							<input hidden="true" type="submit" value="Sign Out" />
+						</form>
+
+
+
+						<a th:href="@{/listaautori}" class="linkhomeinbar"> Autori </a> <a
+							th:href="@{/listaopere}" class="linkhomeinbar">| Opere </a> <a
+							th:href="@{/listautenti}" class="linkhomeinbar">| Utenti |</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" id="riquadrohome">
+		<div class="slideshow-container">
+
+			<div class="mySlides fade" style= "display: block;">
+				<div class="numbertext">Gioconda</div>
+				<img src="/assets/images/slidedavinci.jpg" style="width: 90%"/>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">Giorno e Notte</div>
+				<img src="/assets/images/slideescher.jpg" style="width: 90%"/>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">Forme</div>
+				<img src="/assets/images/slidekand.jpg" style="width: 90%"/>
+			</div>
+			
+			<div class="mySlides fade">
+				<div class="numbertext">Notte Stellata</div>
+				<img src="/assets/images/slidevangogh.jpg" style="width: 90%"/>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a class="next"
+				onclick="plusSlides(1)"> &#10095;</a>
+
+		</div>
+		<br/>
+
+		<div style="text-align: center">
+			<span class="dot" onclick="currentSlide(1)"></span> 
+			<span class="dot" onclick="currentSlide(2)"></span> 
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+		</div>
+
+	</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+@CHARSET "ISO-8859-1";
+
+#header {
+	background-size: cover;
+	height: 100vh;
+	padding: 0;
+}
+
+#topbar {
+	background-color: #4C4C4C;
+	height: 122px;
+}
+
+#riquadro {
+	text-align: center;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+	padding-top: 130px;
+}
+#riquadroerr {
+	text-align: center;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+	padding-top: 150px;
+	
+}
+#riquadroind {
+	text-align: center;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+	padding-top: 45px;
+}
+#riquadrologogrande {
+	items-allign:center;
+	
+}
+
+#riquadroform {
+	text-align: left;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+}
+
+#riquadrologin {
+	text-align: center;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 280px;
+	margin-top: 115px;
+}
+
+#riquadrohome {
+	text-align: center;
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 550px;
+	margin-top: 55px;
+	padding-top: 20px;
+}
+
+#riquadrolista {
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+}
+
+#riquadroautore {
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+}
+
+#riquadroopera {
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 460px;
+	margin-top: 115px;
+}
+
+#imgopera {
+	max-width: 380px;
+	max-height: 380px;
+	width:auto;
+	height:auto;
+}
+
+#riquadroIMG{
+	width: 350px;
+	height: 300px;
+}
+
+#riquadroutente {
+	background-color: rgba(198, 198, 198, 0.6);
+	height: 350px;
+	margin-top: 115px;
+}
+
+#intestazione {
+	border-bottom-style: solid;
+	color: #4C4C4C;
+	font: 700 30px 'Josefin Sans', sans-serif;
+}
+
+.logo {
+	padding-top: 25px;
+}
+
+a.linkindex {
+	color: #FFFFFF;
+	text-decoration: none;
+	font: 700 50px 'Josefin Sans', sans-serif;
+}
+
+a.linkhome {
+	color: #FFFFFF;
+	text-decoration: none;
+	font: 700 50px 'Josefin Sans', sans-serif;
+}
+
+a.linklista {
+	color: #4C4C4C;
+	text-decoration: none;
+	font: 400 20px 'Josefin Sans', sans-serif;
+}
+a.linklista:hover {
+	color: #c80000;
+}
+a.linkhomeinbar {
+	color: #ffffff;
+	text-decoration: none;
+	font: 30px 'Josefin Sans', sans-serif;
+}
+
+a.linklogoutinbar {
+	color: #c80000;
+	text-decoration: none;
+	font: 30px 'Josefin Sans', sans-serif;
+	
+}
+
+a.linklogoutinbar:hover {
+	color: #910000;
+}
+
+a.linklogininbar {
+	color: #00bb00;
+	text-decoration: none;
+	font: 30px 'Josefin Sans', sans-serif;
+	
+}
+a.linkinterni {
+		color: #c80000;
+		text-decoration: none;
+		font: 20px 'Josefin Sans', sans-serif;
+	
+}
+a.linkinterni:hover {
+	color: #8a0000;
+}
+
+a.linklogininbar:hover {
+	color: #007d00;
+}
+
+a.linkhomeinbar:hover {
+	color: #a8a8a8;
+}
+
+a:hover {
+	color: #4C4C4C;
+}
+
+#rowbottoni {
+	text-align: center;
+	padding-top: 90px;
+}
+
+#rowbottoniformautore {
+	text-align: center;
+	padding-top: 80px;
+}
+
+#rowbottoniformopera {
+	text-align: center;
+	padding-top: 55px;
+}
+
+#rowbottoniformregistrazione {
+	text-align: center;
+	padding-top: 80px;
+}
+
+#rowbottonilogin {
+	text-align: center;
+	padding-top: 60px;
+}
+
+#rowbottonereset {
+	padding-left: 165px;
+}
+
+#rowbottonelogin {
+	padding-right: 165px;
+}
+
+#bottonelogin {
+	width: 200px;
+	height: 40px;
+}
+
+#bottonelogin:hover {
+	background-color: #555555;
+	color: white
+}
+
+#bottonecancella {
+	background-color: rgba(221, 221, 221, 1);
+	border-color: rgba(221, 221, 221, 1); width : 100px;
+	height: 30px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 100px;
+}
+
+#bottonecancella:hover {
+	background-color: #555555;
+	color: white;
+}
+
+#resetbutton {
+	width: 200px;
+	height: 40px;
+}
+
+#resetbutton:hover {
+	background-color: #555555;
+	color: white
+}
+
+#barreinserimento {
+	margin-top: 20px;
+}
+
+#campousernamelogin {
+	font: 400 20px 'Josefin Sans', sans-serif;
+}
+
+#campopasswordlogin {
+	font: 400 20px 'Josefin Sans', sans-serif;
+}
+
+#campiopera{
+	font-size:15px;
+}
+
+#menuatendina {
+	margin-top: 20px;
+}
+
+#linkhome {
+	padding-top:86px;
+}
+
+li{
+	padding: 10px;
+}
+
+#scrittabenvenuto {
+	font: 20px 'Josefin Sans', sans-serif;
+	
+}
+
+#loginfailmessage {
+	font: 20px 'Josefin Sans', sans-serif;
+	color: #c80000
+}
+
+#barreinserimentologin {
+	margin-top:40px;
+}
+
+

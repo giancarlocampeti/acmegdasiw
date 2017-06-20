@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link
+	href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700"
+	rel="stylesheet" />
+
+<head>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/css/style.css}" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="ISO-8859-1" />
+<title>New Autore</title>
+</head>
+<body style="background-image: url(../assets/images/sfondo.jpg);">
+
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="/assets/images/logo.png" title="ACME Art Gallery"
+							class="logo" />
+					</div>
+					<div class="col-md-5"></div>
+					<div class="col-md-4" id="linkhome">
+					<a href="javascript: document.logoutForm.submit()" role="menuitem" class="linklogoutinbar">| Logout |</a>
+
+   <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+      <input hidden="true" type="submit" value="Sign Out"/>
+   </form> 
+						<a th:href="@{/listaopere}" class="linkhomeinbar"> Opere </a> <a
+							th:href="@{/home}" class="linkhomeinbar">| Home |</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="container" id="riquadroform">
+			<div class="row">
+
+				<div class="col-md-6">
+					<p id="intestazione">Inserisci nuova Opera</p>
+				</div>
+
+			</div>
+
+
+
+			<form action="#" th:action="@{/inserisciopera}" th:object="${opera}"
+				method="post">
+				<div class="row" id="barreinserimento">
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.titolo}">Titolo: </span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{titolo}" /></span> <span
+							th:if="${#fields.hasErrors('titolo')}"
+							th:text="#{label.mandatory}">Error</span>
+					</div>
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.dimensionilarghezza}">Dimensioni
+							(Larghezza): </span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{larghezza}" /></span> <span
+							th:if="${#fields.hasErrors('larghezza')}"
+							th:text="#{label.number}">Error</span>
+					</div>
+				</div>
+				<div class="row" id="barreinserimento">
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.tecnica}">Tecnica: </span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{tecnica}" /></span> <span
+							th:if="${#fields.hasErrors('tecnica')}"
+							th:text="#{label.mandatory}">Error</span>
+					</div>
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.dimensionialtezza}">Dimensioni
+							(Altezza): </span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{altezza}" /></span> <span
+							th:if="${#fields.hasErrors('altezza')}" th:text="#{label.number}">Error</span>
+					</div>
+				</div>
+				<div class="row" id="barreinserimento">
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.anno}">Anno: </span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{anno}" /></span> <span
+							th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+					</div>
+					<div class="col-md-2" id="primitrecampiautore">
+						<span th:text="#{label.imgURL}">Immagine(URL):</span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<span><input type="text" th:field="*{imgURL}" /></span> <span
+							th:if="${#fields.hasErrors('imgURL')}"
+							th:text="#{label.mandatory}">Error</span>
+					</div>
+				</div>
+
+
+				<div class="row" id="menuatendina">
+					<div class="col-md-2" id="primitrecampiautore">
+						<span>Autore:</span>
+					</div>
+					<div class="col-md-4" id="primitrecampiautore">
+						<select name="autore" th:field="*{autore}">
+							<option th:each=" autore : ${autori}"
+								th:text="${autore.nome} +' ' + ${autore.cognome}"
+								th:value="${autore.id}"></option>
+						</select>
+					</div>
+					<div class="col-md-6" id="primitrecampiautore"></div>
+				</div>
+
+				<div class="row" id="rowbottoniformopera">
+					<div class="col-sm-6" id="rowbottonereset">
+						<button type="reset" class="btn" id="resetbutton">Reset</button>
+					</div>
+					<div class="col-sm-6" id="rowbottonelogin">
+						<button type="submit" class="btn" id="bottonelogin">Invia</button>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
